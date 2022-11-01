@@ -105,11 +105,12 @@ namespace BiometricIntegration
             {
                 sql = $@"
                 exec pCore_CommonSp @Operation = SaveLog,@p1='{deviceid}',@p2={userid},@p3='{Recordid}',@p4='{logtime}',@P7='{personid}'";
+                SetLog("Save Query = "+ sql);
                 int a = Update(sql);
             }
             catch (Exception ex)
             {
-                SetErrLog(ex.Message);
+                SetLog("Save Exception = " + ex.Message);
             }
         }
     }
